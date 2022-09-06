@@ -1,0 +1,422 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none !important;
+    transition: all 0.2s linear;
+}
+
+$border: 2px solid brown;
+$box-shadow: 0 0.5rem 1 1rem black;
+
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fix, minmax($val, 1fr));
+    gap: 2rem;
+}
+
+@mixin title-text($titleSize) {
+    font-size: $titleSize;
+    text-transform: capitalize;
+    color: black;
+}
+
+@mixin grap-text($grapSize) {
+    font-size: $grapSize;
+    line-height: 2;
+    color: gray;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: brown;
+    }
+}
+
+// Global CSS
+.link-btn {
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    display: inline-block;
+    border: $border;
+    color: brown;
+    background: none;
+    cursor: pointer;
+    font-size: 1.7rem;
+
+    &:hover {
+        background: brown;
+        color: white;
+    }
+}
+
+
+
+section {
+    padding: 5rem 1rem;
+}
+
+.header {
+    z-index: 2;
+    padding: 4rem 0;
+
+    &.active {
+        padding: 2rem 0;
+        background-color: rgb(139, 39, 39);
+    }
+
+    .logo-icons {
+        font-size: 2.5rem;
+        color: white;
+        font-weight: bolder;
+    }
+
+    .nav {
+        a {
+            font-size: 2rem;
+            color: white;
+            margin-right: 2rem;
+
+            &:hover {
+                text-decoration: underline !important;
+                text-underline-offset: .5rem;
+            }
+
+        }
+    }
+
+    .icons {
+        div {
+            font-size: 2.5rem;
+            color: white;
+            margin-left: 2rem;
+            cursor: pointer;
+        }
+
+        #menu-btn {
+            display: none;
+        }
+
+        #login-btn {
+            position: relative;
+
+            &:hover ul {
+                display: block;
+            }
+
+            ul {
+                list-style: none;
+                position: absolute;
+                top: 120%;
+                right: 0;
+                font-size: 1.4rem;
+                width: 100px;
+                margin-top: .1rem;
+                background-color: white;
+                border-radius: 3px;
+                padding: 0;
+                display: none;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 100px;
+                    height: 10px;
+                    top: -10px;
+                    right: 0;
+                }
+
+                &::before {
+                    content: "";
+                    z-index: -1;
+                    position: absolute;
+                    top: -6px;
+                    right: 0px;
+                    width: 0;
+                    height: 0;
+                    border-bottom: 20px solid white;
+                    border-left: 30px solid transparent;
+                    border-right: 10px solid transparent;
+                }
+
+                li {
+                    text-align: left;
+                    padding: 0 1.5rem;
+                    width: 100%;
+                    height: 30px;
+                    color: brown;
+                    line-height: 30px;
+                    font-weight: 500;
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.login-form {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    height: 100%;
+    width: 100%;
+    background: (0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+    &.active {
+        display: flex;
+    }
+
+    form {
+        width: 50rem;
+        padding: 4rem;
+        background: white;
+        text-align: center;
+        position: relative;
+
+        #close-login-form {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 3rem;
+            cursor: pointer;
+            color: brown;
+
+            &:hover {
+                transform: rotate(-90deg);
+            }
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: brown;
+            font-weight: bolder;
+        }
+
+        h3 {
+            margin-top: 1rem;
+            padding: 1rem 0;
+            @include title-text(2rem)
+        }
+
+        .box {
+            width: 100%;
+            padding: 1.2rem 1.4rem;
+            border: $border;
+            font-size: 1.6rem;
+            margin: 1rem 0;
+        }
+
+        .flex {
+            margin-bottom: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            label {
+                @include grap-text(1.5rem);
+                cursor: pointer
+            }
+
+            a {
+                font-size: 1.5rem;
+                margin-left: auto;
+
+                &:hover {
+                    text-decoration: underline !important;
+                }
+            }
+        }
+
+        .link-btn {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .create-account {
+            padding: 1.5rem .5rem;
+            background: whitesmoke;
+            @include grap-text(1.5rem)
+        }
+    }
+
+}
+
+.register-form {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    height: 100%;
+    width: 100%;
+    background: (0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+    &.active {
+        display: flex;
+    }
+
+    form {
+        width: 50rem;
+        padding: 4rem;
+        background: white;
+        text-align: center;
+        position: relative;
+
+        #close-register-form {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 3rem;
+            cursor: pointer;
+            color: brown;
+
+            &:hover {
+                transform: rotate(-90deg);
+            }
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: brown;
+            font-weight: bolder;
+        }
+
+        h3 {
+            margin-top: 1rem;
+            padding: 1rem 0;
+            @include title-text(2rem)
+        }
+
+        .box {
+            width: 100%;
+            padding: 1.2rem 1.4rem;
+            border: $border;
+            font-size: 1.6rem;
+            margin: 1rem 0;
+        }
+
+        .flex {
+            margin-bottom: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            label {
+                @include grap-text(1.5rem);
+                cursor: pointer
+            }
+
+            a {
+                font-size: 1.5rem;
+                margin-left: auto;
+
+                &:hover {
+                    text-decoration: underline !important;
+                }
+            }
+        }
+
+        .link-btn {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+
+}
+
+
+
+.home {
+    background: url(../images/home-bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width:768px) {
+    header {
+        padding: 4rem 2rem;
+
+        &active {
+            padding: 2rem;
+        }
+
+        #menu-btn {
+            display: inline-block !important;
+
+            &.fa-times {
+                transform: rotate(180deg);
+            }
+        }
+
+        .nav {
+            position: absolute;
+            top: 99%;
+            left: 0;
+            width: 100vw !important;
+            flex-flow: column;
+            clear: both;
+            background-color: white;
+            padding: 1rem 0;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+            &.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            a {
+                margin: 1rem 2rem;
+                color: black !important;
+
+                &:hover {
+                    cursor: pointer;
+                    color: gray !important;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+        scroll-padding-top: 8rem;
+    }
+}
+
+@media (max-width:450px) {
+    html {
+        font-size: 55%;
+    }
+}

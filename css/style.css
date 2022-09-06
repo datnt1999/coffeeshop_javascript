@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none !important;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background: brown;
+}
+
+.link-btn {
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  display: inline-block;
+  border: 2px solid brown;
+  color: brown;
+  background: none;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+.link-btn:hover {
+  background: brown;
+  color: white;
+}
+
+section {
+  padding: 5rem 1rem;
+}
+
+.header {
+  z-index: 2;
+  padding: 4rem 0;
+}
+.header.active {
+  padding: 2rem 0;
+  background-color: rgb(139, 39, 39);
+}
+.header .logo-icons {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: bolder;
+}
+.header .nav a {
+  font-size: 2rem;
+  color: white;
+  margin-right: 2rem;
+}
+.header .nav a:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 0.5rem;
+}
+.header .icons div {
+  font-size: 2.5rem;
+  color: white;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+.header .icons #menu-btn {
+  display: none;
+}
+.header .icons #login-btn {
+  position: relative;
+}
+.header .icons #login-btn:hover ul {
+  display: block;
+}
+.header .icons #login-btn ul {
+  list-style: none;
+  position: absolute;
+  top: 120%;
+  right: 0;
+  font-size: 1.4rem;
+  width: 100px;
+  margin-top: 0.1rem;
+  background-color: white;
+  border-radius: 3px;
+  padding: 0;
+  display: none;
+}
+.header .icons #login-btn ul::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 10px;
+  top: -10px;
+  right: 0;
+}
+.header .icons #login-btn ul::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: -6px;
+  right: 0px;
+  width: 0;
+  height: 0;
+  border-bottom: 20px solid white;
+  border-left: 30px solid transparent;
+  border-right: 10px solid transparent;
+}
+.header .icons #login-btn ul li {
+  text-align: left;
+  padding: 0 1.5rem;
+  width: 100%;
+  height: 30px;
+  color: brown;
+  line-height: 30px;
+  font-weight: 500;
+}
+.header .icons #login-btn ul li:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.login-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  background: 0, 0, 0, 0.5;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+.login-form.active {
+  display: flex;
+}
+.login-form form {
+  width: 50rem;
+  padding: 4rem;
+  background: white;
+  text-align: center;
+  position: relative;
+}
+.login-form form #close-login-form {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 3rem;
+  cursor: pointer;
+  color: brown;
+}
+.login-form form #close-login-form:hover {
+  transform: rotate(-90deg);
+}
+.login-form form .logo {
+  font-size: 2.5rem;
+  color: brown;
+  font-weight: bolder;
+}
+.login-form form h3 {
+  margin-top: 1rem;
+  padding: 1rem 0;
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: black;
+}
+.login-form form .box {
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  border: 2px solid brown;
+  font-size: 1.6rem;
+  margin: 1rem 0;
+}
+.login-form form .flex {
+  margin-bottom: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.login-form form .flex label {
+  font-size: 1.5rem;
+  line-height: 2;
+  color: gray;
+  cursor: pointer;
+}
+.login-form form .flex a {
+  font-size: 1.5rem;
+  margin-left: auto;
+}
+.login-form form .flex a:hover {
+  text-decoration: underline !important;
+}
+.login-form form .link-btn {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.login-form form .create-account {
+  padding: 1.5rem 0.5rem;
+  background: whitesmoke;
+  font-size: 1.5rem;
+  line-height: 2;
+  color: gray;
+}
+
+.register-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  background: 0, 0, 0, 0.5;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+.register-form.active {
+  display: flex;
+}
+.register-form form {
+  width: 50rem;
+  padding: 4rem;
+  background: white;
+  text-align: center;
+  position: relative;
+}
+.register-form form #close-register-form {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 3rem;
+  cursor: pointer;
+  color: brown;
+}
+.register-form form #close-register-form:hover {
+  transform: rotate(-90deg);
+}
+.register-form form .logo {
+  font-size: 2.5rem;
+  color: brown;
+  font-weight: bolder;
+}
+.register-form form h3 {
+  margin-top: 1rem;
+  padding: 1rem 0;
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: black;
+}
+.register-form form .box {
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  border: 2px solid brown;
+  font-size: 1.6rem;
+  margin: 1rem 0;
+}
+.register-form form .flex {
+  margin-bottom: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.register-form form .flex label {
+  font-size: 1.5rem;
+  line-height: 2;
+  color: gray;
+  cursor: pointer;
+}
+.register-form form .flex a {
+  font-size: 1.5rem;
+  margin-left: auto;
+}
+.register-form form .flex a:hover {
+  text-decoration: underline !important;
+}
+.register-form form .link-btn {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.home {
+  background: url(../images/home-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 4rem 2rem;
+  }
+  headeractive {
+    padding: 2rem;
+  }
+  header #menu-btn {
+    display: inline-block !important;
+  }
+  header #menu-btn.fa-times {
+    transform: rotate(180deg);
+  }
+  header .nav {
+    position: absolute;
+    top: 99%;
+    left: 0;
+    width: 100vw !important;
+    flex-flow: column;
+    clear: both;
+    background-color: white;
+    padding: 1rem 0;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  header .nav.active {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  header .nav a {
+    margin: 1rem 2rem;
+    color: black !important;
+  }
+  header .nav a:hover {
+    cursor: pointer;
+    color: gray !important;
+  }
+}
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+    scroll-padding-top: 8rem;
+  }
+}
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}/*# sourceMappingURL=style.css.map */
